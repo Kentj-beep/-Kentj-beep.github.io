@@ -105,7 +105,7 @@
     function LoadHeader(): void
     {
 
-        $.get("./views/components/header.html", function(html_data)
+        $.get("./Views/components/header.html", function(html_data)
         {
             $("header").html(html_data);
             
@@ -124,7 +124,7 @@
     {
         let page_name = router.ActiveLink; //alias
         let callback: Function = ActiveLinkCallBack();
-        $.get(`./views/content/${page_name}.html`, function(html_data)
+        $.get(`./Views/content/${page_name}.html`, function(html_data)
         {
             $("main").html(html_data);
 
@@ -140,7 +140,7 @@
      */
     function LoadFooter()
     {
-        $.get("./views/components/footer.html", function(html_data)
+        $.get("./Views/components/footer.html", function(html_data)
         {
             $("footer").html(html_data);
 

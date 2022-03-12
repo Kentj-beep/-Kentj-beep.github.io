@@ -53,7 +53,7 @@
         });
     }
     function LoadHeader() {
-        $.get("./views/components/header.html", function (html_data) {
+        $.get("./Views/components/header.html", function (html_data) {
             $("header").html(html_data);
             AddNavigationEvents();
             CheckLogin();
@@ -62,14 +62,14 @@
     function LoadContent() {
         let page_name = router.ActiveLink;
         let callback = ActiveLinkCallBack();
-        $.get(`./views/content/${page_name}.html`, function (html_data) {
+        $.get(`./Views/content/${page_name}.html`, function (html_data) {
             $("main").html(html_data);
             CheckLogin();
             callback();
         });
     }
     function LoadFooter() {
-        $.get("./views/components/footer.html", function (html_data) {
+        $.get("./Views/components/footer.html", function (html_data) {
             $("footer").html(html_data);
         });
     }
