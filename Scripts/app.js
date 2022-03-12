@@ -182,7 +182,7 @@
             case "add":
                 {
                     $("main>h1").text("Add Contact");
-                    $("#editButton").html(`<i class="fas fa-plus-circle fa-lg></i> Add`);
+                    $("#editButton").html(`<i class="fas fa-plus-circle fa-lg"></i> Add`);
                     $("#editButton").on("click", (event) => {
                         event.preventDefault();
                         let fullName = document.forms[0].fullName.value;

@@ -247,7 +247,7 @@
         $("a[data='contact-list']").off("click");
         $("a[data='contact-list']").on("click", function()
         {
-            LoadLink("contact-list")
+            LoadLink("contact-list");
         });
 
         let sendButton = document.getElementById("sendButton") as HTMLElement;
@@ -268,7 +268,7 @@
 
             }
         }
-        )
+        );
 
         // Append the contact list button if logged in
         // if (sessionStorage.getItem("user"))
@@ -358,7 +358,8 @@
                 {
                     $("main>h1").text("Add Contact");
 
-                    $("#editButton").html(`<i class="fas fa-plus-circle fa-lg></i> Add`);
+                    // console.log("case add")
+                    $("#editButton").html(`<i class="fas fa-plus-circle fa-lg"></i> Add`);
 
                     $("#editButton").on("click", (event)=>
                     {
