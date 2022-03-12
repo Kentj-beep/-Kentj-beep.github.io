@@ -105,7 +105,7 @@
     function LoadHeader(): void
     {
 
-        $.get("./views/components/header.html", function(html_data)
+        $.get("./Views/components/header.html", function(html_data)
         {
             $("header").html(html_data);
             
@@ -127,6 +127,8 @@
         $.get(`./views/content/${page_name}.html`, function(html_data)
         {
             $("main").html(html_data);
+
+            CheckLogin();
 
             callback();
         });
@@ -152,7 +154,7 @@
 
         $("#AboutUsButton").on("click", () => 
         {
-            location.href = "/about";
+            LoadLink("about");
         });
 
         $("main").append(`<p id="MainParagraph" class="mt-3">This is the Main Paragraph</p>`);
@@ -317,11 +319,7 @@
 
             contactList.innerHTML = data;
 
-            $("#addButton").on("click", () =>
-            {
-                LoadLink("edit", "add");
-            });
-
+            
             $("button.delete").on("click", function()
             {
                 if(confirm("Are you sure?"))
@@ -338,6 +336,12 @@
                 LoadLink("edit", $(this).val() as string);
             });
         }
+
+
+        $("#addButton").on("click", () =>
+            {
+                LoadLink("edit", "add");
+            });
     }
 
     function DisplayEditPage()
@@ -426,7 +430,9 @@
                 sessionStorage.clear();
 
                 // Swap out the logout link for login
-                $("#login").html(`<a class="nav-link" data="login"><i class="fas fa-sign-out-alt"></i> Logout</a>`);
+                $("#login").html(`<a class="nav-link" data="login"><i class="fas fa-sign-out-alt"></i> Login</a>`);
+
+                AddNavigationEvents()
 
                 // redirect back to login
                 LoadLink("login");

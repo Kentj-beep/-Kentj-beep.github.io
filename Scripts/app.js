@@ -53,7 +53,7 @@
         });
     }
     function LoadHeader() {
-        $.get("./views/components/header.html", function (html_data) {
+        $.get("./Views/components/header.html", function (html_data) {
             $("header").html(html_data);
             AddNavigationEvents();
             CheckLogin();
@@ -64,6 +64,7 @@
         let callback = ActiveLinkCallBack();
         $.get(`./views/content/${page_name}.html`, function (html_data) {
             $("main").html(html_data);
+            CheckLogin();
             callback();
         });
     }
@@ -75,7 +76,7 @@
     function DisplayHome() {
         console.log("Home Page");
         $("#AboutUsButton").on("click", () => {
-            location.href = "/about";
+            LoadLink("about");
         });
         $("main").append(`<p id="MainParagraph" class="mt-3">This is the Main Paragraph</p>`);
         $("main").append(`
@@ -159,9 +160,6 @@
                 index++;
             }
             contactList.innerHTML = data;
-            $("#addButton").on("click", () => {
-                LoadLink("edit", "add");
-            });
             $("button.delete").on("click", function () {
                 if (confirm("Are you sure?")) {
                     localStorage.removeItem($(this).val());
@@ -172,6 +170,9 @@
                 LoadLink("edit", $(this).val());
             });
         }
+        $("#addButton").on("click", () => {
+            LoadLink("edit", "add");
+        });
     }
     function DisplayEditPage() {
         console.log("Edit Page");
@@ -222,7 +223,8 @@
             $("#login").html(`<a id="logout" class="nav-link" href="#"><i class="fas fa-sign-out-alt"></i> Logout</a>`);
             $("#logout").on("click", function () {
                 sessionStorage.clear();
-                $("#login").html(`<a class="nav-link" data="login"><i class="fas fa-sign-out-alt"></i> Logout</a>`);
+                $("#login").html(`<a class="nav-link" data="login"><i class="fas fa-sign-out-alt"></i> Login</a>`);
+                AddNavigationEvents();
                 LoadLink("login");
             });
         }
