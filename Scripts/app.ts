@@ -267,16 +267,9 @@
                 AddContact(fullName, contactNumber, emailAddress);
 
             }
+            LoadLink("contact");
         }
         );
-
-        // Append the contact list button if logged in
-        // if (sessionStorage.getItem("user"))
-        // {
-        //     $("#contactPage").append(`<div class="col-lg-4 col-md-4">
-        //     <a class="link" data="contact-list" class="btn btn-primary btn-lg"><i class="fas fa-users fa-lg"></i> Show Contact List</a>
-        //     </div>`);
-        // }
     }
 
     function DisplayContactListPage()

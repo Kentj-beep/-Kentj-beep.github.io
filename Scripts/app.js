@@ -134,6 +134,7 @@
                 let emailAddress = document.forms[0].emailAddress.value;
                 AddContact(fullName, contactNumber, emailAddress);
             }
+            LoadLink("contact");
         });
     }
     function DisplayContactListPage() {
